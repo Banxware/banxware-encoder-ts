@@ -44,7 +44,5 @@ export const createBanxwareLinkIntegration = async (
   );
 
   const encryptedBlob = encryptedMessage + '$' + encryptionResult.toString('base64');
-  const encryptedString = encodeURIComponent(encryptedBlob);
-
-  return encryptedString;
+  return encryptedBlob;
 }

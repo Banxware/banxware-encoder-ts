@@ -11,17 +11,14 @@ describe("link integration", () => {
         const testTenantPrivateKey = fs.readFileSync('./resources/test-tenant-private-key-1.pem').toString();
         const banxwareDevPublicKey = fs.readFileSync('./resources/banxware-dev-public-key-1.pem').toString();
         
-        const merchantInfo: MerchantLinkData = createMerchantInfo();
-        
-        const queryParam = await createBanxwareLinkIntegration(testTenantPrivateKey, banxwareDevPublicKey, merchantInfo);
-        const devEndpoint = `https://panther-services-api-dev.pc-in.net/link-integration?merchant_info=${queryParam}`;
-        console.log({ devEndpoint });
+        const merchantInfo = await createBanxwareLinkIntegration(testTenantPrivateKey, banxwareDevPublicKey, createMerchantInfo());
 
-        const response = await fetch(devEndpoint, {
+        const response = await fetch('https://panther-services-api-dev.pc-in.net/merchant-integration', {
             headers: {
                 'Tenant-Code': 'TEST-TENANT',
             },
-            method: 'POST',
+            method: 'PUT',
+            body: JSON.stringify({ merchantInfo }),
         });
         console.log({ response });
         assert.equal(response.status, 200);
