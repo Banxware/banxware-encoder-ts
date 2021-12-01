@@ -1,4 +1,4 @@
-# Link Integration Client TS
+# Banxware Encoder
 
 This is a client to build the encrypted merchant information needed to integrate platforms with Banxware loan application.
 
