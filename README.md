@@ -1,6 +1,6 @@
-# Banxware Encoder
+# Banxware Merchant Info Encoder
 
-This is a client to build the encrypted merchant information needed to integrate platforms with Banxware loan application.
+This is an encoder library to build the encrypted merchant information needed to integrate platforms with Banxware loan application.
 
 Please look at the encryption procedure [here](src/index.ts) and at the test endpoint invocation [here](test/index.test.ts).
 
