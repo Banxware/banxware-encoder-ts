@@ -15,7 +15,7 @@ describe("link integration", () => {
 
         const response = await fetch('https://panther-services-api-dev.pc-in.net/merchant-integration', {
             headers: {
-                'Tenant-Code': 'TEST-TENANT',
+                'Tenant-Code': 'TEST',
             },
             method: 'PUT',
             body: JSON.stringify({ merchantInfo }),
