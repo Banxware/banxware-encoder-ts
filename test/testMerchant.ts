@@ -27,6 +27,7 @@ export function createMerchantInfo(): MerchantLinkData {
       "sharesPercent": 100,
       "ultimateBeneficial": false,
       "legalRepresentative": true,
+      "applicantOwner": true,
       "address": {
         "addressLine1": "Teststrasse",
         "addressLine2": "complement",
