@@ -9,6 +9,7 @@ export interface Owner {
   sharesPercent: number;
   ultimateBeneficial: boolean;
   legalRepresentative: boolean;
+  applicantOwner: boolean;
   address: Address;
 };
 
