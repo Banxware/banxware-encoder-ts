@@ -14,7 +14,7 @@ export function createMerchantInfo(): MerchantLinkData {
       "zipCode": "00000",
       "city": "Berlin",
       "state": "Berlin",
-      "country": "Germany"
+      "country": "DEU"
     },
     "owners": [{
       "title": "mr",
@@ -22,8 +22,8 @@ export function createMerchantInfo(): MerchantLinkData {
       "firstName": "Owner 1",
       "lastName": "Last name",
       "dateOfBirth": "1988-11-25",
-      "nationality": "BR",
-      "taxNumber": "012345678",
+      "nationality": "BRA",
+      "taxNumber": "1234567890",
       "sharesPercent": 100,
       "ultimateBeneficial": false,
       "legalRepresentative": true,
@@ -35,7 +35,7 @@ export function createMerchantInfo(): MerchantLinkData {
         "zipCode": "00000",
         "city": "Berlin",
         "state": "Berlin",
-        "country": "Germany"
+        "country": "DEU"
       },
     }],
     "timeOfRunBusinessInMonths": 12,
@@ -72,9 +72,9 @@ export function createMerchantInfo(): MerchantLinkData {
       }
     ],
     "responsiblePublicAuthority": "test",
-    "legalForm": "GmbH",
-    "registrationNumber": "123456789",
-    "register": "Berlin",
+    "legalForm": "gmbh",
+    "registrationNumber": "HRB 1234",
+    "register": "Berlin (Charlottenburg)",
     "crefoId": "2012961798",
     "website": "www.test.com",
     "numberOfEmployees": 32,
