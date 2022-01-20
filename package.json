@@ -2,7 +2,7 @@
   "name": "banxware-link-intergration-client-ts",
   "version": "1.0.0",
   "engines": {
-    "node": ">=14.15.4 <15",
+    "node": ">=14.15.4",
     "yarn": ">=1.22.5",
     "npm": "Please use yarn!"
   },
