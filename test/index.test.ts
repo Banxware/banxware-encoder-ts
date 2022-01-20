@@ -1,7 +1,6 @@
 import * as fs from 'fs'
 import fetch from 'node-fetch'
 import { createMerchantInfo } from './testMerchant'
-import { MerchantLinkData } from '../src/types'
 import { createBanxwareLinkIntegration } from '../src/index'
 import assert from 'assert'
 
@@ -14,11 +13,15 @@ describe('link integration', () => {
       .readFileSync('./resources/banxware-dev-public-key-1.pem')
       .toString()
 
-    const merchantInfo = await createBanxwareLinkIntegration(
+    const merchantInfo = createMerchantInfo()
+    console.log({ merchantInfo })
+
+    const blob = await createBanxwareLinkIntegration(
       testTenantPrivateKey,
       banxwareDevPublicKey,
-      createMerchantInfo(),
+      merchantInfo,
     )
+    console.log({ blob })
 
     const response = await fetch(
       'https://panther-services-api-dev.pc-in.net/merchant-integration',
@@ -27,10 +30,12 @@ describe('link integration', () => {
           'Tenant-Code': 'TEST',
         },
         method: 'PUT',
-        body: JSON.stringify({ merchantInfo }),
+        body: JSON.stringify({ merchantInfo: blob }),
       },
     )
-    console.log({ response })
     assert.equal(response.status, 200)
+
+    const body = await response.json()
+    console.dir({ body }, { depth: null })
   })
 })
