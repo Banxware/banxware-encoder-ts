@@ -1,8 +1,2 @@
 node_modules
-/dist
 /coverage
-
-/src/**/*.js
-/test/**/*.js
-
-*.d.ts
