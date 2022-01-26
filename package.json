@@ -5,6 +5,7 @@
   "homepage": "https://github.com/Banxware/banxware-encoder-ts#readme",
   "repository": "github:Banxware/banxware-encoder-ts",
   "license": "ISC",
+  "files": ["lib", "resources"],
   "engines": {
     "node": ">=14.15.4"
   },
