@@ -1,9 +1,0 @@
-src
-node_modules
-.eslintrc
-.npmignore
-.prettierignore
-.prettierrc.json
-jest.config.js
-package.json
-yarn.lock

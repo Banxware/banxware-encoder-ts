@@ -1,6 +1,11 @@
 {
-  "name": "banxware-link-intergration-client-ts",
+  "name": "@banxware/encoder-ts",
   "version": "1.0.0",
+  "description": "An encoder library to build the encrypted merchant information needed to integrate platforms with the Banxware loan application.",
+  "homepage": "https://github.com/Banxware/banxware-encoder-ts#readme",
+  "repository": "github:Banxware/banxware-encoder-ts",
+  "license": "ISC",
+  "files": ["lib", "resources"],
   "engines": {
     "node": ">=14.15.4"
   },
@@ -10,7 +15,6 @@
     "build": "rimraf ./lib && tsc",
     "lint": "eslint . --ext .ts"
   },
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/plugin-transform-runtime": "^7.15.0",
