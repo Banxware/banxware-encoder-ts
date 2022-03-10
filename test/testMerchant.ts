@@ -40,7 +40,7 @@ export function createMerchantInfo(): MerchantLinkData {
         },
       },
     ],
-    timeOfRunBusinessInMonths: 12,
+    timeOfRunBusinessInMonths: 11,
     lastSixMonthsRevenue: [
       {
         month: 6,
