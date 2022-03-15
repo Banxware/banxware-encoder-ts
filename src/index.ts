@@ -18,12 +18,7 @@ export const createBanxwareLinkIntegration = async (
     signature: signatureResult,
   })
 
-  const compressedMessage = zlib.brotliCompressSync(message, {
-    params: {
-      [zlib.constants.BROTLI_PARAM_MODE]: zlib.constants.BROTLI_MODE_TEXT,
-      [zlib.constants.BROTLI_PARAM_QUALITY]: zlib.constants.BROTLI_MAX_QUALITY,
-    },
-  })
+  const compressedMessage = zlib.gzipSync(message)
 
   const aesKey = await crypto.randomBytes(32)
   const aesIv = await crypto.randomBytes(16)
