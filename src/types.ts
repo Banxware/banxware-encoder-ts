@@ -31,6 +31,7 @@ export interface Revenue {
 
 export interface MerchantLinkData {
   merchantId: string
+  mcc: string
   name: string
   email: string
   address: Address
