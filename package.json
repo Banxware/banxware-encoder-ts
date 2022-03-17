@@ -1,11 +1,14 @@
 {
   "name": "@banxware/encoder-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An encoder library to build the encrypted merchant information needed to integrate platforms with the Banxware loan application.",
   "homepage": "https://github.com/Banxware/banxware-encoder-ts#readme",
   "repository": "github:Banxware/banxware-encoder-ts",
   "license": "ISC",
-  "files": ["lib", "resources"],
+  "files": [
+    "lib",
+    "resources"
+  ],
   "engines": {
     "node": ">=14.15.4"
   },
