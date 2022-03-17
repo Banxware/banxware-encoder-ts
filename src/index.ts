@@ -18,7 +18,7 @@ export const createBanxwareLinkIntegration = async (
     signature: signatureResult,
   })
 
-  const compressedMessage = zlib.gzipSync(message)
+  const compressedMessage = zlib.deflateRawSync(message)
 
   const aesKey = await crypto.randomBytes(32)
   const aesIv = await crypto.randomBytes(16)
