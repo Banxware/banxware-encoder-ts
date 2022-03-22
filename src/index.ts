@@ -25,7 +25,10 @@ export const createBanxwareLinkIntegration = async (
   const cipheriv = crypto.createCipheriv('aes-256-gcm', aesKey, aesIv)
 
   // Append the authTag onto the encrypted message to emulate the Java implementation of AES GCM cipher.
-  const encryptedMessage = Buffer.concat([cipheriv.update(compressedMessage), cipheriv.final(), cipheriv.getAuthTag()])
+  const messageBytes = cipheriv.update(compressedMessage)
+  const finalBytes = cipheriv.final()
+  const tagBytes =  cipheriv.getAuthTag()
+  const encryptedMessage = Buffer.concat([messageBytes, finalBytes, tagBytes])
 
   const messageKey = aesKey.toString('base64') + '$' + aesIv.toString('base64')
   const key = { key: banxwarePublicKey, padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, oaepHash: 'sha256' }
