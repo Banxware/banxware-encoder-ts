@@ -15,7 +15,7 @@ export const createBanxwareLinkIntegration = async (
 
   const message = JSON.stringify({
     merchantInfo: merchantInfo,
-    signature: signatureResult,
+    signature: signatureResult
   })
 
   const compressedMessage = zlib.deflateRawSync(message)
@@ -24,19 +24,16 @@ export const createBanxwareLinkIntegration = async (
   const aesIv = await crypto.randomBytes(16)
   const cipheriv = crypto.createCipheriv('aes-256-gcm', aesKey, aesIv)
 
-  const encryptedMessage = cipheriv.update(compressedMessage).toString('base64')
+  // Append the authTag onto the encrypted message to emulate the Java implementation of AES GCM cipher.
+  const messageBytes = cipheriv.update(compressedMessage)
+  const finalBytes = cipheriv.final()
+  const tagBytes =  cipheriv.getAuthTag()
+  const encryptedMessage = Buffer.concat([messageBytes, finalBytes, tagBytes])
 
   const messageKey = aesKey.toString('base64') + '$' + aesIv.toString('base64')
-  const encryptionResult = crypto.publicEncrypt(
-    {
-      key: banxwarePublicKey,
-      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
-      oaepHash: 'sha256',
-    },
-    Buffer.from(messageKey),
-  )
+  const key = { key: banxwarePublicKey, padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, oaepHash: 'sha256' }
+  const encryptionResult = crypto.publicEncrypt(key, Buffer.from(messageKey))
 
-  const encryptedBlob =
-    encryptedMessage + '$' + encryptionResult.toString('base64')
+  const encryptedBlob = encryptedMessage.toString('base64') + '$' + encryptionResult.toString('base64')
   return encryptedBlob
 }
