@@ -51,3 +51,8 @@ export interface MerchantLinkData {
   subjectToVat?: boolean
   vatId?: string
 }
+
+export interface MerchantLinkPayload {
+  merchantInfo: MerchantLinkData,
+  encryptionTime: string
+}

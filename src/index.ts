@@ -1,4 +1,4 @@
-import { MerchantLinkData } from './types'
+import { MerchantLinkData, MerchantLinkPayload } from './types'
 import * as crypto from 'crypto'
 import * as zlib from 'zlib'
 
@@ -7,14 +7,18 @@ export const createBanxwareLinkIntegration = async (
   banxwarePublicKey: string,
   clientData: MerchantLinkData,
 ): Promise<string> => {
-  const merchantInfo = JSON.stringify(clientData)
+  const merchantLinkPayload: MerchantLinkPayload = {
+    merchantInfo: clientData,
+    encryptionTime: new Date().toISOString(),
+  }
+  const messagePayload = JSON.stringify(merchantLinkPayload)
   const sign = crypto.createSign('RSA-SHA256')
-  sign.update(merchantInfo)
+  sign.update(messagePayload)
   sign.end()
   const signatureResult = sign.sign(clientPrivateKey, 'base64')
 
   const message = JSON.stringify({
-    merchantInfo: merchantInfo,
+    payload: messagePayload,
     signature: signatureResult
   })
 
@@ -34,6 +38,5 @@ export const createBanxwareLinkIntegration = async (
   const key = { key: banxwarePublicKey, padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, oaepHash: 'sha256' }
   const encryptionResult = crypto.publicEncrypt(key, Buffer.from(messageKey))
 
-  const encryptedBlob = encryptedMessage.toString('base64') + '$' + encryptionResult.toString('base64')
-  return encryptedBlob
+  return encryptedMessage.toString('base64') + '$' + encryptionResult.toString('base64')
 }
