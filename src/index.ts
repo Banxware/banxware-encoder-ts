@@ -7,6 +7,7 @@ export const createBanxwareLinkIntegration = async (
   banxwarePublicKey: string,
   clientData: MerchantLinkData,
 ): Promise<string> => {
+  (clientData as any)["encryptionTime"] = new Date().toISOString()
   const merchantInfo = JSON.stringify(clientData)
   const sign = crypto.createSign('RSA-SHA256')
   sign.update(merchantInfo)
