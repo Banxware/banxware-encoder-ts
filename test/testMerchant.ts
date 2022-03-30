@@ -4,7 +4,7 @@ import { MerchantLinkData } from '../src/types'
 export function createMerchantInfo(): MerchantLinkData {
   return {
     merchantId: v4(),
-    mcc: "BEAUTY",
+    mcc: '5912',
     name: 'test GmbH',
     email: 'test_gmbh@email.com',
     phoneNumber: '+491639658152',
