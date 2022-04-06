@@ -38,7 +38,7 @@ export interface MerchantLinkData {
   owners: Owner[]
   timeOfRunBusinessInMonths: number
   lastSixMonthsRevenue: Revenue[]
-  legalForm: string
+  legalForm?: string
   phoneNumber?: string
   responsiblePublicAuthority?: string
   foundationDate?: string
