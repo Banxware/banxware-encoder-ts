@@ -3,10 +3,10 @@ export interface Owner {
   email: string
   firstName: string
   lastName: string
-  dateOfBirth: string
+  dateOfBirth?: string
   nationality: string
   taxNumber: string
-  sharesPercent: number
+  sharesPercent?: number
   ultimateBeneficial: boolean
   legalRepresentative: boolean
   applicantOwner: boolean
