@@ -35,7 +35,7 @@ export interface MerchantLinkData {
   name: string
   email: string
   address: Address
-  owners: Owner[]
+  owners?: Owner[]
   timeOfRunBusinessInMonths: number
   lastSixMonthsRevenue: Revenue[]
   legalForm?: string
