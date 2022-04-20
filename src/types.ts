@@ -1,16 +1,16 @@
 export interface Owner {
-  title: string
-  email: string
-  firstName: string
-  lastName: string
+  title?: string
+  email?: string
+  firstName?: string
+  lastName?: string
   dateOfBirth?: string
-  nationality: string
-  taxNumber: string
+  nationality?: string
+  taxNumber?: string
   sharesPercent?: number
-  ultimateBeneficial: boolean
-  legalRepresentative: boolean
-  applicantOwner: boolean
-  address: Address
+  ultimateBeneficial?: boolean
+  legalRepresentative?: boolean
+  applicantOwner?: boolean
+  address?: Address
 }
 
 export interface Address {
@@ -33,10 +33,10 @@ export interface MerchantLinkData {
   merchantId: string
   mcc: string
   name: string
-  email: string
+  email?: string
   address: Address
   owners?: Owner[]
-  timeOfRunBusinessInMonths: number
+  timeOfRunBusinessInMonths?: number
   lastSixMonthsRevenue: Revenue[]
   legalForm?: string
   phoneNumber?: string
