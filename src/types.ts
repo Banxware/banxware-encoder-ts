@@ -33,7 +33,7 @@ export interface MerchantLinkData {
   merchantId: string
   mcc: string
   name: string
-  email?: string
+  email: string
   address: Address
   owners?: Owner[]
   timeOfRunBusinessInMonths?: number
