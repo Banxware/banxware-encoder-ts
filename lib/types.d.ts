@@ -13,13 +13,13 @@ export interface Owner {
     address?: Address;
 }
 export interface Address {
-    addressLine1: string;
+    addressLine1?: string;
     addressLine2?: string;
-    streetNumber: string;
-    zipCode: string;
-    city: string;
-    state: string;
-    country: string;
+    streetNumber?: string;
+    zipCode?: string;
+    city?: string;
+    state?: string;
+    country?: string;
 }
 export interface Revenue {
     month: number;
@@ -28,7 +28,6 @@ export interface Revenue {
 }
 export interface MerchantLinkData {
     merchantId: string;
-    mcc: string;
     name: string;
     email: string;
     address: Address;
@@ -47,4 +46,5 @@ export interface MerchantLinkData {
     taxNumber?: string;
     subjectToVat?: boolean;
     vatId?: string;
+    mcc?: string;
 }
