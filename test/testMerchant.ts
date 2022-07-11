@@ -28,7 +28,7 @@ export function createMerchantInfo(): MerchantLinkData {
         taxNumber: '1234567890',
         sharesPercent: 100,
         ultimateBeneficial: false,
-        legalRepresentative: true,
+        legalRepresentative: false,
         applicantOwner: true,
         address: {
           addressLine1: 'Teststrasse',
